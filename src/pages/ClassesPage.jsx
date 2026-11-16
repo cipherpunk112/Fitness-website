@@ -4,6 +4,15 @@ import DemoControls from "../components/DemoControls";
 import StatusMessage from "../components/StatusMessage";
 import { useFitFlow } from "../context/FitFlowContext";
 
+function getStartTimestamp(item) {
+  const [clockTime, period] = item.time.split(" ");
+  const [rawHour, minute] = clockTime.split(":").map(Number);
+  const hour = (rawHour % 12) + (period === "PM" ? 12 : 0);
+  const paddedHour = String(hour).padStart(2, "0");
+
+  return new Date(`${item.date}T${paddedHour}:${String(minute).padStart(2, "0")}:00`).getTime();
+}
+
 export default function ClassesPage() {
   const {
     classes,
@@ -49,7 +58,7 @@ export default function ClassesPage() {
         if (sortBy === "price-low") return first.price - second.price;
         if (sortBy === "price-high") return second.price - first.price;
         if (sortBy === "availability") return second.seatsLeft - first.seatsLeft;
-        return `${first.date}-${first.time}`.localeCompare(`${second.date}-${second.time}`);
+        return getStartTimestamp(first) - getStartTimestamp(second);
       });
   }, [availability, category, classes, level, search, sortBy]);
 

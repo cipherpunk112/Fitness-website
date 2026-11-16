@@ -145,7 +145,11 @@ export default function BookingPage() {
                         <h3>{item.name}</h3>
                         <p>{item.day} · {item.time} · {item.duration} min</p>
                         <span>PKR {item.price.toLocaleString()} per place · {item.seatsLeft} available</span>
-                        {conflict && <p className="field-error" role="alert">{conflict.message}</p>}
+                        {conflict && (
+                          <p className="field-error" id={`conflict-${item.id}`} role="alert">
+                            {conflict.message}
+                          </p>
+                        )}
                       </div>
                       <div className="quantity-control">
                         <label htmlFor={`quantity-${item.id}`}>Places</label>
