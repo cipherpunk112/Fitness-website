@@ -1494,6 +1494,10 @@ nav .plan-link.active {
     content: "Plan";
     font-size: 0.77rem;
   }
+
+  .plan-link span {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

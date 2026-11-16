@@ -13,7 +13,7 @@ All bookings and payments are simulated. The application uses only local data an
 ## Links
 
 - **GitHub repository:** `[Add public GitHub link]`
-- **Deployed application:** `[Add public deployment link]`
+- **Deployed application:** https://fitflow-islamabad-booking-2026.flowingbeak1.chatgpt.site
 - **Final commit:** `[Add final commit hash]`
 
 ## Setup
