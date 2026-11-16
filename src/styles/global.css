@@ -1481,6 +1481,21 @@ nav .plan-link.active {
   }
 }
 
+@media (max-width: 430px) {
+  nav a:first-child {
+    display: none;
+  }
+
+  nav .plan-link {
+    font-size: 0;
+  }
+
+  nav .plan-link::before {
+    content: "Plan";
+    font-size: 0.77rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
