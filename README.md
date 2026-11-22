@@ -1,8 +1,8 @@
 # FitFlow Islamabad
 
-**Student:** `[Full Name]`  
-**Roll number:** `[Roll Number]`  
-**Section:** `[Section]`  
+**Student:** Muhammad Saim  
+**Roll number:** 24i2064  
+**Section:** CY-C  
 **Course:** CS4032 Web Programming  
 **Assignment:** 02 - Business Website Development Using React
 
@@ -12,9 +12,9 @@ All bookings and payments are simulated. The application uses only local data an
 
 ## Links
 
-- **GitHub repository:** `[Add public GitHub link]`
+- **GitHub repository:** https://github.com/cipherpunk112/Fitness-website
 - **Deployed application:** https://fitflow-islamabad-booking-2026.flowingbeak1.chatgpt.site
-- **Final commit:** `[Add final commit hash]`
+- **Final commit:** To be entered after the final source is pushed to GitHub.
 
 ## Setup
 
