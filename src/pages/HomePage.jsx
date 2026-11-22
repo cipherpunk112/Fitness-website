@@ -9,7 +9,7 @@ export default function HomePage() {
             <p className="eyebrow">Fitness that fits student life</p>
             <h1>Find your class. Build your week. Move better.</h1>
             <p className="hero-lead">
-              Compare coached fitness sessions with the price, level, time, and live availability shown before you choose.
+              Compare coached fitness sessions with the price, level, time, and current demo availability shown before you choose.
             </p>
             <div className="hero-actions">
               <Link className="button primary large" to="/classes">
@@ -28,7 +28,7 @@ export default function HomePage() {
 
           <div className="hero-board" aria-label="Sample weekly schedule">
             <div className="board-heading">
-              <span>This week</span>
+              <span>Sample week</span>
               <strong>Move your way</strong>
             </div>
             <div className="mini-class lime">
@@ -90,7 +90,7 @@ export default function HomePage() {
           <ul className="rule-list">
             <li>
               <strong>Up to 4 places</strong>
-              <span>per class, subject to live availability</span>
+              <span>per class, subject to current demo availability</span>
             </li>
             <li>
               <strong>Age 16+</strong>

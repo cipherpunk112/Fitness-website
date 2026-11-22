@@ -5,12 +5,12 @@
 | Field | Entry |
 | --- | --- |
 | Problem | Aura Studio warns that displayed class times may be one hour later than the actual start time and asks visitors to verify the daily lineup elsewhere. This weakens confidence in the schedule used for booking. |
-| Decision | Load one local schedule source asynchronously and show explicit loading, failure, retry, and changed-availability states. Dates, times, price, level, and availability are displayed together. |
+| Decision | Load one local schedule source asynchronously, calculate the dates for the next complete week, and show the full date and time across cards, details, plan, and confirmation. Show explicit loading, failure, retry, and changed-availability states. |
 | Alternative | Show a static timetable and a general warning that users should contact the studio before attending. |
 | Reason | Students planning around lectures need one dependable task flow and a clear recovery path when data cannot be loaded. |
-| Tradeoff | The mock loader and demonstration controls add state and error-handling code. |
-| Code location | `src/services/classService.js`; `src/context/FitFlowContext.jsx`; loading and error sections in `src/pages/ClassesPage.jsx`. |
-| Evidence | On Classes, expand the demonstration controls, choose **Simulate loading failure**, verify the error explanation, and use **Retry loading**. |
+| Tradeoff | A recurring fictional schedule is suitable for demonstration but is not a live timetable. The mock loader and controls add recovery code. |
+| Code location | `src/utils/schedule.js`; `src/services/classService.js`; `src/context/FitFlowContext.jsx`; `src/pages/ClassesPage.jsx`; date display in cards, booking, and confirmation. |
+| Evidence | Compare a class date on its card, details, plan, and confirmation. On Classes, choose **Simulate loading failure**, verify the error explanation, and use **Retry loading**. |
 
 ## Decision 2 - Put comparison information on every class card
 

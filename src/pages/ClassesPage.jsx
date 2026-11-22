@@ -152,7 +152,8 @@ export default function ClassesPage() {
         {!loading && !error && classes.length === 0 && (
           <div className="state-card">
             <h2>No classes have been published.</h2>
-            <p>Please return later when the next schedule is available.</p>
+            <p>Try reloading the schedule, or return later when classes are available.</p>
+            <button className="button secondary" type="button" onClick={restoreSchedule}>Reload schedule</button>
           </div>
         )}
 

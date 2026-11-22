@@ -22,3 +22,11 @@
 Automated command: `npm test`
 
 Result: 3 tests passed, 0 failed. The tested rule is the same `validateTicketQuantity` function used by the React application.
+
+## Follow-up audit, 22 November 2026
+
+- Local source: `npm ci`, `npm test` (5 passed, 0 failed), and `npm run build` passed after the schedule and fallback changes. The three required capacity tests remain unchanged; two tests cover the rolling week and missing-date fallback.
+- Date consistency: card, detail, booking, and confirmation now use the same displayed date from the loaded schedule. The next complete Monday–Sunday week is generated locally each time the schedule loads.
+- Missing content: optional description, coach, equipment, suitability, icon, and date fields have visible fallbacks; long words wrap in cards and booking layouts. This is a code-level check; an edited dataset and 390 px layout still need visual retesting.
+- Deployment checks in the table above describe the earlier published build. Recheck the full live journey, console, keyboard, and 390/1280 px layouts after the updated source is deployed. Do not treat them as verification of the new build yet.
+- Public GitHub history, student details, final ZIP name, and report screenshots are pending.

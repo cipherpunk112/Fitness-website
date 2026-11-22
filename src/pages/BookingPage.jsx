@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import StatusMessage from "../components/StatusMessage";
 import { useFitFlow } from "../context/FitFlowContext";
+import { classDate } from "../utils/schedule";
 import {
   MAX_TICKETS_PER_CLASS,
   MINIMUM_AGE,
@@ -140,10 +141,10 @@ export default function BookingPage() {
                   const conflict = selectionConflicts.find((entry) => entry.id === item.id);
                   return (
                     <article className="selected-item" key={item.id}>
-                      <div className="selected-icon" aria-hidden="true">{item.icon}</div>
+                      <div className="selected-icon" aria-hidden="true">{item.icon || "◆"}</div>
                       <div className="selected-copy">
                         <h3>{item.name}</h3>
-                        <p>{item.day} · {item.time} · {item.duration} min</p>
+                        <p>{item.day}, {classDate(item)} · {item.time} · {item.duration} min</p>
                         <span>PKR {item.price.toLocaleString()} per place · {item.seatsLeft} available</span>
                         {conflict && (
                           <p className="field-error" id={`conflict-${item.id}`} role="alert">

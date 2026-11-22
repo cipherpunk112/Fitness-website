@@ -57,6 +57,7 @@ npm test
 ## Main features
 
 - Twelve local class records with stable IDs.
+- A forthcoming Monday–Sunday demo schedule, with the full date shown on cards, details, the plan, and confirmation. The schedule rolls to the next complete week when loaded.
 - Search across class name, coach, category, and description.
 - Category and level filters, availability option, and sorting.
 - Details pages with price, suitability, equipment, timing, coach, and places left.
@@ -99,7 +100,8 @@ Other checks:
 - No real payment, email, account, database, or live capacity service is used.
 - Availability changes only through the documented demonstration control.
 - Local storage is device- and browser-specific.
-- Dates and sessions are fictional and prepared for this assignment.
+- Dates and sessions are fictional. The next complete week's dates are generated locally; no real place is reserved.
+- Missing optional descriptions, coach details, equipment, and icons show readable fallbacks.
 
 ## Concept map
 
@@ -109,6 +111,7 @@ Other checks:
 | Shared state | `src/context/FitFlowContext.jsx` | `FitFlowProvider`, `useFitFlow` |
 | Local data | `src/data/classes.js` | `fitnessClasses` |
 | Async loading | `src/services/classService.js` | `loadFitnessClasses` |
+| Schedule dates | `src/utils/schedule.js` | `nextWeekDate`, `classDate` |
 | Search/filter/sort | `src/pages/ClassesPage.jsx` | `filteredClasses` |
 | Props and callback props | `src/components/ClassCard.jsx` | `ClassCard`, `onAdd` |
 | Controlled form | `src/pages/BookingPage.jsx` | `form`, `handleFieldChange` |

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { classDate } from "../utils/schedule";
 
 export default function ClassCard({ fitnessClass, onAdd }) {
   const isFull = fitnessClass.seatsLeft === 0;
@@ -6,8 +7,8 @@ export default function ClassCard({ fitnessClass, onAdd }) {
   return (
     <article className={`class-card ${isFull ? "is-unavailable" : ""}`}>
       <div className="card-visual" aria-hidden="true">
-        <span>{fitnessClass.icon}</span>
-        <small>{fitnessClass.category}</small>
+        <span>{fitnessClass.icon || "◆"}</span>
+        <small>{fitnessClass.category || "Fitness"}</small>
       </div>
       <div className="card-content">
         <div className="card-topline">
@@ -17,17 +18,17 @@ export default function ClassCard({ fitnessClass, onAdd }) {
           </span>
         </div>
         <h2>{fitnessClass.name}</h2>
-        <p>{fitnessClass.shortDescription}</p>
+        <p>{fitnessClass.shortDescription || "More class information will be available soon."}</p>
         <dl className="quick-facts">
           <div>
             <dt>When</dt>
             <dd>
-              {fitnessClass.day}, {fitnessClass.time}
+              {fitnessClass.day}, {classDate(fitnessClass)} at {fitnessClass.time}
             </dd>
           </div>
           <div>
             <dt>Coach</dt>
-            <dd>{fitnessClass.coach}</dd>
+            <dd>{fitnessClass.coach || "Coach to be confirmed"}</dd>
           </div>
           <div>
             <dt>Price</dt>

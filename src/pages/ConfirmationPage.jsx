@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useFitFlow } from "../context/FitFlowContext";
+import { classDate } from "../utils/schedule";
 
 export default function ConfirmationPage() {
   const location = useLocation();
@@ -35,7 +36,7 @@ export default function ConfirmationPage() {
             <ul className="confirmation-list">
               {confirmation.items.map((item) => (
                 <li key={item.id}>
-                  <div><strong>{item.name}</strong><span>{item.day}, {item.time}</span></div>
+                  <div><strong>{item.name}</strong><span>{item.day}, {classDate(item)} at {item.time}</span></div>
                   <span>{item.quantity} {item.quantity === 1 ? "place" : "places"}</span>
                 </li>
               ))}

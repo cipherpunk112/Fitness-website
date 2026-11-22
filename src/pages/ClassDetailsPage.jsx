@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import StatusMessage from "../components/StatusMessage";
 import { useFitFlow } from "../context/FitFlowContext";
+import { classDate } from "../utils/schedule";
 
 export default function ClassDetailsPage() {
   const { id } = useParams();
@@ -53,7 +54,7 @@ export default function ClassDetailsPage() {
 
         <div className="details-grid">
           <div className="details-visual">
-            <span aria-hidden="true">{fitnessClass.icon}</span>
+            <span aria-hidden="true">{fitnessClass.icon || "◆"}</span>
             <small>{fitnessClass.category}</small>
           </div>
 
@@ -65,20 +66,20 @@ export default function ClassDetailsPage() {
               </span>
             </div>
             <h1>{fitnessClass.name}</h1>
-            <p className="details-lead">{fitnessClass.description}</p>
+            <p className="details-lead">{fitnessClass.description || "More class information will be available soon."}</p>
 
             <dl className="details-facts">
-              <div><dt>Date and time</dt><dd>{fitnessClass.day}, {fitnessClass.date} at {fitnessClass.time}</dd></div>
+              <div><dt>Date and time</dt><dd>{fitnessClass.day}, {classDate(fitnessClass)} at {fitnessClass.time}</dd></div>
               <div><dt>Duration</dt><dd>{fitnessClass.duration} minutes</dd></div>
-              <div><dt>Coach</dt><dd>{fitnessClass.coach}</dd></div>
+              <div><dt>Coach</dt><dd>{fitnessClass.coach || "Coach to be confirmed"}</dd></div>
               <div><dt>Location</dt><dd>{fitnessClass.location}</dd></div>
               <div><dt>Price per place</dt><dd>PKR {fitnessClass.price.toLocaleString()}</dd></div>
               <div><dt>Availability</dt><dd>{isFull ? "No places available" : `${fitnessClass.seatsLeft} places currently available`}</dd></div>
             </dl>
 
             <div className="info-boxes">
-              <article><h2>Who it suits</h2><p>{fitnessClass.suitability}</p></article>
-              <article><h2>What to bring</h2><p>{fitnessClass.equipment}</p></article>
+              <article><h2>Who it suits</h2><p>{fitnessClass.suitability || "Ask the coach about suitability before attending."}</p></article>
+              <article><h2>What to bring</h2><p>{fitnessClass.equipment || "Please contact the studio about equipment."}</p></article>
             </div>
 
             <div className="rule-reminder">
